@@ -1,0 +1,423 @@
+********************************************************************
+
+                     Jay Offerdahl - Project 2                      
+
+********************************************************************
+
+Charging customer: 6.73 Adams John Quincy
+
+Customer Record:
+Name:		Adams John Quincy
+Address:	Quincy Massachusetts
+Number:		(603)-375-8957
+Charges:	$359.76
+
+Account charged!
+
+Customer Record:
+Name:		Adams John Quincy
+Address:	Quincy Massachusetts
+Number:		(603)-375-8957
+Charges:	$366.49
+
+
+Printing records by area: 785
+
+Customers in located in zone 785:
+Geis Leitha M         (785)-286-3117
+Fish Aaron            (785)-922-5684
+Gearhart Chas B Jr    (785)-484-0390
+Gross Steven T        (785)-465-4612
+Mutch George M        (785)-997-2093
+Salkin Benjamin       (785)-781-1125
+Williams Rita M       (785)-664-5084
+Werther James         (785)-648-5792
+Hampp Charles W       (785)-822-2975
+Kleppinger C W Jr     (785)-822-3518
+Esterson Lois Mrs     (785)-486-1012
+Seger George          (785)-822-4072
+Rahim Mohamed J       (785)-822-4918
+
+Printing bill by name: Brown Frank F
+
+Error: Customer not found in database.
+
+Inserting record by name: Brown Frank F        37 Elm Street Lawrence      7859834162   17.26
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$17.26
+
+
+Removing record by name: Brown Frank F
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$17.26
+
+Final bill for Brown Frank F:
+Charges: $17.26
+
+Verifying record removal...
+Record not found in the database.
+
+Inserting record by name: Brown Frank F        37 Elm Street Lawrence      7859834162   930.84
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$930.84
+
+
+Removing record by number: 7859834162
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$930.84
+
+Final bill for Brown Frank F:
+Charges: $930.84
+
+Verifying record removal...
+Record not found in the database.
+
+Inserting record by number: 7859834162 Brown Frank F        37 Elm Street Lawrence     1337.00
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1337.00
+
+
+Inserting record by number: 7850000000 Offerdahl Jay        42069 Leet Street          1000000.95
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Offerdahl Jay
+Address:	42069 Leet Street
+Number:		(785)-000-0000
+Charges:	$1000000.95
+
+
+Printing records by area: 785
+
+Customers in located in zone 785:
+Geis Leitha M         (785)-286-3117
+Fish Aaron            (785)-922-5684
+Gearhart Chas B Jr    (785)-484-0390
+Gross Steven T        (785)-465-4612
+Mutch George M        (785)-997-2093
+Salkin Benjamin       (785)-781-1125
+Williams Rita M       (785)-664-5084
+Werther James         (785)-648-5792
+Hampp Charles W       (785)-822-2975
+Kleppinger C W Jr     (785)-822-3518
+Esterson Lois Mrs     (785)-486-1012
+Seger George          (785)-822-4072
+Rahim Mohamed J       (785)-822-4918
+Brown Frank F         (785)-983-4162
+Offerdahl Jay         (785)-000-0000
+
+Printing bill by name: Brown Frank F
+
+Current period bill for Brown Frank F:
+Current charges: $1337.00
+
+Making a payment: 337.00 Brown Frank F
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1337.00
+
+Payment made!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1000.00
+
+
+Making a payment: 500.00 7859834162
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1000.00
+
+Payment made!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$500.00
+
+
+Making a payment: 5000.00 Brown Frank F
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$500.00
+
+Run-time exception: Payment exceeds charges: 5000.000000
+
+
+Charging customer: 1000.00 Brown Frank F
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$500.00
+
+Account charged!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1500.00
+
+
+Charging customer: 500.00 7859834162
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1500.00
+
+Account charged!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$2000.00
+
+
+Printing bill by name: Brown Frank F
+
+Current period bill for Brown Frank F:
+Current charges: $2000.00
+
+Printing bill by number: 7859834162
+
+Current period bill for Brown Frank F:
+Current charges: $2000.00
+
+Printing in hash range: 20
+
+Customer list whose names hash to 20:
+Ransel James H        409 Walcott Rd
+WCTR                  Flatland Rd Chestertown
+
+Printing in hash range: 46
+
+Customer list whose names hash to 46:
+Milewski Walter P     1628 Hazel St
+Nichols Charlotte     Williamsburg Church Rd
+Ruth Ruby B           4308 White Oak Ct
+Ruthrauff E           232 Sudbrook Lane
+Beling Louise A       435 Imla St
+
+Printing bills for day: 12
+
+Bills going out on the 12th:
+Sterger Henry A       2952 Normandy Drive       $1.27
+Davis Ben H           108 Kuethe Rd Glen Burnie $14.80
+Bradley Brent S       Oxford                    $21.45
+Fox Michael           Beauvoir Trappe           $75.89
+Jastrzab Stanley      234 Brookwood  Easton     $1289.73
+Andraka Romuald K     9214 Lawnview La Laurel   $13.75
+XEROX                 Reisterstown Rd           $9999.99
+Jamar Robert D        Haven Rd Rockhall         $6.98
+Jaworski Anne A       601 Williams  Cambridge   $15.60
+
+Printing bills for day: 23
+
+Bills going out on the 23rd:
+Geis Leitha M         5719 Trotter Rd Clarksvil $25.87
+Hampp Charles W       615 S Washington  Easton  $31.25
+James Malachi         Corsica Neckn             $52.39
+Travers Wilmalee      Hoopersville              $12.87
+Caulk Charles H       Marling Farms  Chester    $1111.11
+Wynn John W           Hyeland Estates           $7.13
+Jamar Richard         RockHall                  $9.12
+Rutherford Albert     3204 Chrome Hill Road     $23.87
+Elliott George        Morris St Oxford          $43.71
+Bramble Joseph M      Chester Harbor            $16.73
+Flesher Austin        38-D Cool Breeze Drive    $12.56
+
+Printing bills for day: 28
+
+Bills going out on the 28th:
+
+Printing records by area: 785
+
+Customers in located in zone 785:
+Geis Leitha M         (785)-286-3117
+Fish Aaron            (785)-922-5684
+Gearhart Chas B Jr    (785)-484-0390
+Gross Steven T        (785)-465-4612
+Mutch George M        (785)-997-2093
+Salkin Benjamin       (785)-781-1125
+Williams Rita M       (785)-664-5084
+Werther James         (785)-648-5792
+Hampp Charles W       (785)-822-2975
+Kleppinger C W Jr     (785)-822-3518
+Esterson Lois Mrs     (785)-486-1012
+Seger George          (785)-822-4072
+Rahim Mohamed J       (785)-822-4918
+Brown Frank F         (785)-983-4162
+Offerdahl Jay         (785)-000-0000
+
+Printing bill by number: 2133878285
+
+Current period bill for Robinson Raymond A:
+Current charges: $46.98
+
+Removing record by number: 6033758957
+
+Customer Record:
+Name:		Adams John Quincy
+Address:	Quincy Massachusetts
+Number:		(603)-375-8957
+Charges:	$366.49
+
+Final bill for Adams John Quincy:
+Charges: $366.49
+
+Verifying record removal...
+Record not found in the database.
+
+Inserting record by number: 9136235264 Smith Mary Isabel    87 Spruce Street Topeka   24.76
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Smith Mary Isabel
+Address:	87 Spruce Street Topeka
+Number:		(913)-623-5264
+Charges:	$24.76
+
+
+Charging customer: 247.36 3145867610
+
+Customer Record:
+Name:		Perkins Ann I
+Address:	59 Wistful Vista
+Number:		(314)-586-7610
+Charges:	$14.76
+
+Account charged!
+
+Customer Record:
+Name:		Perkins Ann I
+Address:	59 Wistful Vista
+Number:		(314)-586-7610
+Charges:	$262.12
+
+
+Inserting record by name: Anderson Brenda      386 Maple Lane Baltimore    7116281819   0.00
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Anderson Brenda
+Address:	386 Maple Lane Baltimore
+Number:		(711)-628-1819
+Charges:	$0.00
+
+
+Removing record by name: Johnson James J
+
+Customer Record:
+Name:		Johnson James J
+Address:	4713 Harrison Av
+Number:		(333)-382-1674
+Charges:	$75.13
+
+Final bill for Johnson James J:
+Charges: $75.13
+
+Verifying record removal...
+Record not found in the database.
+
+Printing bill by name: Zwagerman Lance
+
+Current period bill for Zwagerman Lance:
+Current charges: $65.78
+
+Making a payment: 10.54 2138721674
+
+Customer Record:
+Name:		Curtis Cynthia
+Address:	15 Meadowlark Lane
+Number:		(213)-872-1674
+Charges:	$25.00
+
+Payment made!
+
+Customer Record:
+Name:		Curtis Cynthia
+Address:	15 Meadowlark Lane
+Number:		(213)-872-1674
+Charges:	$14.46
+
+
+Printing bills for day: 16
+
+Bills going out on the 16th:
+Seymour Sonja Mrs     439 South St  Easton      $13.56
+Perkins Pancake Hse   9545 Belair Rd            $650.00
+Hill Frank E          21 S Calvert St           $13.45
+Kurtz William D       6318 Falkirk Rd           $56.78
+Seger George          Waverly                   $63.91
+Jallade Louis E       Radcliffe Av St Michaels  $16.73
+
+Printing in hash range: 2
+
+Customer list whose names hash to 2:
+Cody R J              8406 Snowdon Oaks Pl
+Robinson Raymond A    47 Clearview Ct
+Weaver Joseph         Hell's Half Acre  Oxford
+Loftus V A            181 Cherrydell Rd
+Elborn William O      Barclay
+Anderson Brenda       386 Maple Lane Baltimore
+
+Printing records by area: 913
+
+Customers in located in zone 913:
+Ranieri Rudolph L     (913)-728-6140
+Skeie Dean            (913)-745-5331
+Smith Mary Isabel     (913)-623-5264
+
+Exiting...
