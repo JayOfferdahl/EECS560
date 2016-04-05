@@ -91,11 +91,10 @@ int main(int argc, char* argv[])
 
 			Customer* temp = new Customer(str1, number, str2, charges);
 
-			// Try to find this customer by name, if not found, continue
-			Customer* check = nameTable->find(str1);
-			if(check != nullptr) {
+			// Try to find this customer by number, if not found, continue
+			Customer* check = numTable->find(number);
+			if(check != nullptr)
 				std::cout << "\nError: Customer already exists in the database.\n";
-			}
 			else {
 				// Try inserting into all three tables and verify placement
 				try {
@@ -104,7 +103,7 @@ int main(int argc, char* argv[])
 					numTable->insert(temp);
 
 					std::cout << "\nVerifying record placement...\n";
-					Customer* check = nameTable->find(temp->name);
+					Customer* check = numTable->find(temp->number);
 					if(check != nullptr) {
 						std::cout << "Record found!\n";
 						check->print();
@@ -178,14 +177,13 @@ int main(int argc, char* argv[])
 					numTable->removeRecord(temp);
 
 					std::cout << "\nVerifying record removal...\n";
-					Customer* checkName = nameTable->find(temp->name);
 					Customer* checkNum = numTable->find(temp->number);
 
-					if(checkName == nullptr && checkNum == nullptr)
+					if(checkNum == nullptr)
 						std::cout << "Record not found in the database.\n";
 					else {
 						std::cout << "\nError: The record still exists in the database.\n";
-						checkName == nullptr ? checkName->print() : checkNum->print();
+						checkNum->print();
 					}
 
 					// Free memory
@@ -218,14 +216,13 @@ int main(int argc, char* argv[])
 					numTable->removeRecord(temp);
 
 					std::cout << "\nVerifying record removal...\n";
-					Customer* checkName = nameTable->find(temp->name);
 					Customer* checkNum = numTable->find(temp->number);
 
-					if(checkName == nullptr && checkNum == nullptr)
+					if(checkNum == nullptr)
 						std::cout << "Record not found in the database.\n";
 					else {
 						std::cout << "\nError: The record still exists in the database.\n";
-						checkName == nullptr ? checkName->print() : checkNum->print();
+						checkNum->print();
 					}
 
 					// Free memory

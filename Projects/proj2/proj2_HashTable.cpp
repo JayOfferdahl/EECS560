@@ -138,11 +138,11 @@ void HashTable::removeRecord(Customer* customer) {
 
 	// Find the record before this customer
 	if(tableType == CUST_NAME) {
-		if(temp->name == customer->name)
+		if(temp->number == customer->number)
 			table[index] = temp->nextName;
 		else {
 			while(temp->nextName != nullptr) {
-				if(temp->nextName->name == customer->name)
+				if(temp->nextName->number == customer->number)
 					break;
 				temp = temp->nextName;
 			}
@@ -164,11 +164,11 @@ void HashTable::removeRecord(Customer* customer) {
 		}
 	}
 	else if(tableType == CUST_AREA) {
-		if(temp->address == customer->address)
+		if(temp->number == customer->number)
 			table[index] = temp->nextArea;
 		else {
 			while(temp->nextArea != nullptr) {
-				if(temp->nextArea->address == customer->address)
+				if(temp->nextArea->number == customer->number)
 					break;
 				temp = temp->nextArea;
 			}
