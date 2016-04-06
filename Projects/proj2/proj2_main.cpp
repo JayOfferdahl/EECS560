@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
 			if(temp != nullptr) {
 				temp->print();
 				try {
-					std::cout << "Final bill for " << temp->name << ":\n";
+					std::cout << "\nFinal bill for " << temp->name << ":\n";
 					std::cout << "Charges: $" << std::fixed << std::setprecision(2) 
 						  << temp->charges << "\n";
 
@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
 			if(temp != nullptr) {
 				temp->print();
 				try {
-					std::cout << "Final bill for " << temp->name << ":\n";
+					std::cout << "\nFinal bill for " << temp->name << ":\n";
 					std::cout << "Charges: $" << std::fixed << std::setprecision(2) 
 						  << temp->charges << "\n";
 
@@ -258,11 +258,15 @@ int main(int argc, char* argv[])
 
 			// If the search returned a valid customer, try to make the payment
 			if(temp != nullptr) {
+				// Print out cusotmer record
 				temp->print();
+				std::cout << "\nOriginal Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				try {
 					temp->makePayment(payment);
-					std::cout << "Payment made!\n";
-					temp->print();
+					std::cout << "\nPayment made!\n";
+					std::cout << "\nNew Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				} catch(const std::runtime_error& e ) {
 					std::cout << e.what();
 				}
@@ -294,11 +298,15 @@ int main(int argc, char* argv[])
 
 			// If the search returned a valid customer, try to make the payment
 			if(temp != nullptr) {
+				// Print out cusotmer record
 				temp->print();
+				std::cout << "\nOriginal Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				try {
 					temp->addCharge(charges);
-					std::cout << "Account charged!\n";
-					temp->print();
+					std::cout << "\nAccount charged!\n";
+					std::cout << "\nNew Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				} catch(const std::runtime_error& e ) {
 					std::cout << e.what();
 				}
@@ -462,6 +470,8 @@ int main(int argc, char* argv[])
 		}
 		else
 			std::cout << "\nInvalid input.\n";
+
+		std::cout << "\n--------------------------------------------------------------------\n";
 	}
 }
 

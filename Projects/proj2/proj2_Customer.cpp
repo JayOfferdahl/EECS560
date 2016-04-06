@@ -35,11 +35,11 @@ Customer::Customer(std::string in_name, double in_number, std::string in_address
  */
 void Customer::makePayment(double amount) {
 	if(amount <= 0) {
-		std::string error = "Run-time exception: Invalid payment amount: " + std::to_string(amount) + "\n\n";
+		std::string error = "Run-time exception: Invalid payment amount: " + std::to_string(amount) + "\n";
 		throw std::runtime_error(error);
 	}
 	else if(charges - amount < 0) {
-		std::string error = "Run-time exception: Payment exceeds charges: " + std::to_string(amount) + "\n\n";
+		std::string error = "Run-time exception: Payment exceeds charges: " + std::to_string(amount) + "\n";
 		throw std::runtime_error(error);
 	}
 	else {
@@ -53,7 +53,7 @@ void Customer::makePayment(double amount) {
  */
 void Customer::addCharge(double amount) {
 	if(amount <= 0) {
-		std::string error = "Run-time exception: Invalid billing amount: " + std::to_string(amount) + "\n\n";
+		std::string error = "Run-time exception: Invalid billing amount: " + std::to_string(amount) + "\n";
 		throw std::runtime_error(error);
 	}
 	else {
@@ -69,5 +69,5 @@ void Customer::print() {
 
 	std::cout << "\nCustomer Record:\nName:\t\t" << name << "\nAddress:\t" << address
 			  << "\nNumber:\t\t(" << num.substr(0, 3) << ")-" << num.substr(3, 3) << "-" << num.substr(6, 4)
-			  << "\nCharges:\t$" << std::fixed << std::setprecision(2) << charges << "\n\n";
+			  << "\nCharges:\t$" << std::fixed << std::setprecision(2) << charges << "\n";
 }
