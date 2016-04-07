@@ -4,23 +4,6 @@
 
 ********************************************************************
 
-Charging customer: 6.73 Adams John Quincy
-
-Customer Record:
-Name:		Adams John Quincy
-Address:	Quincy Massachusetts
-Number:		(603)-375-8957
-Charges:	$359.76
-
-Account charged!
-
-Customer Record:
-Name:		Adams John Quincy
-Address:	Quincy Massachusetts
-Number:		(603)-375-8957
-Charges:	$366.49
-
-
 Printing records by area: 785
 
 Customers in located in zone 785:
@@ -38,9 +21,19 @@ Esterson Lois Mrs     (785)-486-1012
 Seger George          (785)-822-4072
 Rahim Mohamed J       (785)-822-4918
 
+--------------------------------------------------------------------
+
 Printing bill by name: Brown Frank F
 
 Error: Customer not found in database.
+
+--------------------------------------------------------------------
+
+Printing bill by number: 7859834162
+
+Error: Customer not found in database.
+
+--------------------------------------------------------------------
 
 Inserting record by name: Brown Frank F        37 Elm Street Lawrence      7859834162   17.26
 
@@ -53,6 +46,33 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$17.26
 
+--------------------------------------------------------------------
+
+Inserting record by name: Brown Frank F        37 Elm Street Lawrence      7859834162   30184.02
+
+Error: That account number already exists in the database.
+
+--------------------------------------------------------------------
+
+Inserting record by number: 7859834162 Brown Frank F        37 Elm Street Lawrence     94828.00
+
+Error: That account number already exists in the database.
+
+--------------------------------------------------------------------
+
+Printing bill by name: Brown Frank F
+
+Current period bill for Brown Frank F:
+Current charges: $17.26
+
+--------------------------------------------------------------------
+
+Printing bill by number: 7859834162
+
+Current period bill for Brown Frank F:
+Current charges: $17.26
+
+--------------------------------------------------------------------
 
 Removing record by name: Brown Frank F
 
@@ -68,6 +88,20 @@ Charges: $17.26
 Verifying record removal...
 Record not found in the database.
 
+--------------------------------------------------------------------
+
+Printing bill by name: Brown Frank F
+
+Error: Customer not found in database.
+
+--------------------------------------------------------------------
+
+Printing bill by number: 7859834162
+
+Error: Customer not found in database.
+
+--------------------------------------------------------------------
+
 Inserting record by name: Brown Frank F        37 Elm Street Lawrence      7859834162   930.84
 
 Verifying record placement...
@@ -79,6 +113,7 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$930.84
 
+--------------------------------------------------------------------
 
 Removing record by number: 7859834162
 
@@ -94,6 +129,8 @@ Charges: $930.84
 Verifying record removal...
 Record not found in the database.
 
+--------------------------------------------------------------------
+
 Inserting record by number: 7859834162 Brown Frank F        37 Elm Street Lawrence     1337.00
 
 Verifying record placement...
@@ -105,6 +142,7 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$1337.00
 
+--------------------------------------------------------------------
 
 Inserting record by number: 7850000000 Offerdahl Jay        42069 Leet Street          1000000.95
 
@@ -117,6 +155,7 @@ Address:	42069 Leet Street
 Number:		(785)-000-0000
 Charges:	$1000000.95
 
+--------------------------------------------------------------------
 
 Printing records by area: 785
 
@@ -137,10 +176,14 @@ Rahim Mohamed J       (785)-822-4918
 Brown Frank F         (785)-983-4162
 Offerdahl Jay         (785)-000-0000
 
+--------------------------------------------------------------------
+
 Printing bill by name: Brown Frank F
 
 Current period bill for Brown Frank F:
 Current charges: $1337.00
+
+--------------------------------------------------------------------
 
 Making a payment: 337.00 Brown Frank F
 
@@ -150,7 +193,15 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$1337.00
 
+Original Balance: $1337.00
+
 Payment made!
+
+New Balance: $1000.00
+
+--------------------------------------------------------------------
+
+Making a payment: -10.00 Brown Frank F
 
 Customer Record:
 Name:		Brown Frank F
@@ -158,6 +209,23 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$1000.00
 
+Original Balance: $1000.00
+Run-time exception: Invalid payment amount: -10.000000
+
+--------------------------------------------------------------------
+
+Making a payment: 0.00 Brown Frank F
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1000.00
+
+Original Balance: $1000.00
+Run-time exception: Invalid payment amount: 0.000000
+
+--------------------------------------------------------------------
 
 Making a payment: 500.00 7859834162
 
@@ -167,14 +235,13 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$1000.00
 
+Original Balance: $1000.00
+
 Payment made!
 
-Customer Record:
-Name:		Brown Frank F
-Address:	37 Elm Street Lawrence
-Number:		(785)-983-4162
-Charges:	$500.00
+New Balance: $500.00
 
+--------------------------------------------------------------------
 
 Making a payment: 5000.00 Brown Frank F
 
@@ -184,8 +251,10 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$500.00
 
+Original Balance: $500.00
 Run-time exception: Payment exceeds charges: 5000.000000
 
+--------------------------------------------------------------------
 
 Charging customer: 1000.00 Brown Frank F
 
@@ -195,7 +264,15 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$500.00
 
+Original Balance: $500.00
+
 Account charged!
+
+New Balance: $1500.00
+
+--------------------------------------------------------------------
+
+Charging customer: -500.00 Brown Frank F
 
 Customer Record:
 Name:		Brown Frank F
@@ -203,6 +280,23 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$1500.00
 
+Original Balance: $1500.00
+Run-time exception: Invalid billing amount: -500.000000
+
+--------------------------------------------------------------------
+
+Charging customer: 0.00 Brown Frank F
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street Lawrence
+Number:		(785)-983-4162
+Charges:	$1500.00
+
+Original Balance: $1500.00
+Run-time exception: Invalid billing amount: 0.000000
+
+--------------------------------------------------------------------
 
 Charging customer: 500.00 7859834162
 
@@ -212,7 +306,29 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$1500.00
 
+Original Balance: $1500.00
+
 Account charged!
+
+New Balance: $2000.00
+
+--------------------------------------------------------------------
+
+Printing bill by name: Brown Frank F
+
+Current period bill for Brown Frank F:
+Current charges: $2000.00
+
+--------------------------------------------------------------------
+
+Printing bill by number: 7859834162
+
+Current period bill for Brown Frank F:
+Current charges: $2000.00
+
+--------------------------------------------------------------------
+
+Removing record by name: Brown Frank F
 
 Customer Record:
 Name:		Brown Frank F
@@ -220,22 +336,33 @@ Address:	37 Elm Street Lawrence
 Number:		(785)-983-4162
 Charges:	$2000.00
 
+Final bill for Brown Frank F:
+Charges: $2000.00
+
+Verifying record removal...
+Record not found in the database.
+
+--------------------------------------------------------------------
 
 Printing bill by name: Brown Frank F
 
-Current period bill for Brown Frank F:
-Current charges: $2000.00
+Error: Customer not found in database.
+
+--------------------------------------------------------------------
 
 Printing bill by number: 7859834162
 
-Current period bill for Brown Frank F:
-Current charges: $2000.00
+Error: Customer not found in database.
+
+--------------------------------------------------------------------
 
 Printing in hash range: 20
 
 Customer list whose names hash to 20:
 Ransel James H        409 Walcott Rd
 WCTR                  Flatland Rd Chestertown
+
+--------------------------------------------------------------------
 
 Printing in hash range: 46
 
@@ -245,6 +372,30 @@ Nichols Charlotte     Williamsburg Church Rd
 Ruth Ruby B           4308 White Oak Ct
 Ruthrauff E           232 Sudbrook Lane
 Beling Louise A       435 Imla St
+
+--------------------------------------------------------------------
+
+Printing in hash range: 47
+
+Error: Invalid index: Index must be between 0 and 46. (0-based)
+
+--------------------------------------------------------------------
+
+Printing in hash range: 150
+
+Error: Invalid index: Index must be between 0 and 46. (0-based)
+
+--------------------------------------------------------------------
+
+Printing in hash range: 0
+
+Customer list whose names hash to 0:
+Foreman Ronald C      Beechwood Rd Essex
+Foreman Ronald C      3926 Foster Av
+Sorrell Almon T       2103 Curtis Ct Sykesville
+Hurlock Philip M      Church Hill
+
+--------------------------------------------------------------------
 
 Printing bills for day: 12
 
@@ -258,6 +409,8 @@ Andraka Romuald K     9214 Lawnview La Laurel   $13.75
 XEROX                 Reisterstown Rd           $9999.99
 Jamar Robert D        Haven Rd Rockhall         $6.98
 Jaworski Anne A       601 Williams  Cambridge   $15.60
+
+--------------------------------------------------------------------
 
 Printing bills for day: 23
 
@@ -274,9 +427,78 @@ Elliott George        Morris St Oxford          $43.71
 Bramble Joseph M      Chester Harbor            $16.73
 Flesher Austin        38-D Cool Breeze Drive    $12.56
 
+--------------------------------------------------------------------
+
 Printing bills for day: 28
 
 Bills going out on the 28th:
+
+--------------------------------------------------------------------
+
+Printing bills for day: 31
+
+Bills going out on the 31st:
+
+--------------------------------------------------------------------
+
+Printing bills for day: 32
+
+Error: Invalid index: Index must be between 1 and 31. (1-based, 31 days max)
+
+--------------------------------------------------------------------
+
+Printing bills for day: 0
+
+Error: Invalid index: Index must be between 1 and 31. (1-based, 31 days max)
+
+--------------------------------------------------------------------
+
+Printing bills for day: 1
+
+Bills going out on the 1st:
+Foreman Ronald C      Beechwood Rd Essex        $147.12
+Foreman Ronald C      3926 Foster Av            $32.58
+Sorrell Almon T       2103 Curtis Ct Sykesville $57.87
+Hurlock Philip M      Church Hill               $3789.31
+Gearhart Chas B Jr    805 Cliffedge Road        $5.89
+Perkins Robert        3302 Upton Rd Carney      $16.90
+Werther James         Galena                    $45.61
+
+--------------------------------------------------------------------
+
+Printing bills for day: -20
+
+Error: Invalid index: Index must be between 1 and 31. (1-based, 31 days max)
+
+--------------------------------------------------------------------
+
+Printing records by area: -500
+
+Error: Invalid area code: Please choose a positive three digit number.
+
+--------------------------------------------------------------------
+
+Printing records by area: 13
+
+Error: Invalid area code: Please choose a positive three digit number.
+
+--------------------------------------------------------------------
+
+Printing records by area: 193
+
+Customers in located in zone 193:
+
+There are no customers located in this area code.
+
+--------------------------------------------------------------------
+
+Printing records by area: 913
+
+Customers in located in zone 913:
+Ranieri Rudolph L     (913)-728-6140
+Skeie Dean            (913)-745-5331
+
+--------------------------------------------------------------------
 
 Printing records by area: 785
 
@@ -294,13 +516,44 @@ Kleppinger C W Jr     (785)-822-3518
 Esterson Lois Mrs     (785)-486-1012
 Seger George          (785)-822-4072
 Rahim Mohamed J       (785)-822-4918
-Brown Frank F         (785)-983-4162
 Offerdahl Jay         (785)-000-0000
+
+--------------------------------------------------------------------
+
+Printing records by area: 1030
+
+Error: Invalid area code: Please choose a positive three digit number.
+
+--------------------------------------------------------------------
+
+Printing records by area: 99401
+
+Error: Invalid area code: Please choose a positive three digit number.
+
+--------------------------------------------------------------------
+
+Charging customer: 6.73 Adams John Quincy
+
+Customer Record:
+Name:		Adams John Quincy
+Address:	Quincy Massachusetts
+Number:		(603)-375-8957
+Charges:	$359.76
+
+Original Balance: $359.76
+
+Account charged!
+
+New Balance: $366.49
+
+--------------------------------------------------------------------
 
 Printing bill by number: 2133878285
 
 Current period bill for Robinson Raymond A:
 Current charges: $46.98
+
+--------------------------------------------------------------------
 
 Removing record by number: 6033758957
 
@@ -316,6 +569,8 @@ Charges: $366.49
 Verifying record removal...
 Record not found in the database.
 
+--------------------------------------------------------------------
+
 Inserting record by number: 9136235264 Smith Mary Isabel    87 Spruce Street Topeka   24.76
 
 Verifying record placement...
@@ -327,6 +582,7 @@ Address:	87 Spruce Street Topeka
 Number:		(913)-623-5264
 Charges:	$24.76
 
+--------------------------------------------------------------------
 
 Charging customer: 247.36 3145867610
 
@@ -336,14 +592,13 @@ Address:	59 Wistful Vista
 Number:		(314)-586-7610
 Charges:	$14.76
 
+Original Balance: $14.76
+
 Account charged!
 
-Customer Record:
-Name:		Perkins Ann I
-Address:	59 Wistful Vista
-Number:		(314)-586-7610
-Charges:	$262.12
+New Balance: $262.12
 
+--------------------------------------------------------------------
 
 Inserting record by name: Anderson Brenda      386 Maple Lane Baltimore    7116281819   0.00
 
@@ -356,6 +611,7 @@ Address:	386 Maple Lane Baltimore
 Number:		(711)-628-1819
 Charges:	$0.00
 
+--------------------------------------------------------------------
 
 Removing record by name: Johnson James J
 
@@ -371,10 +627,14 @@ Charges: $75.13
 Verifying record removal...
 Record not found in the database.
 
+--------------------------------------------------------------------
+
 Printing bill by name: Zwagerman Lance
 
 Current period bill for Zwagerman Lance:
 Current charges: $65.78
+
+--------------------------------------------------------------------
 
 Making a payment: 10.54 2138721674
 
@@ -384,14 +644,13 @@ Address:	15 Meadowlark Lane
 Number:		(213)-872-1674
 Charges:	$25.00
 
+Original Balance: $25.00
+
 Payment made!
 
-Customer Record:
-Name:		Curtis Cynthia
-Address:	15 Meadowlark Lane
-Number:		(213)-872-1674
-Charges:	$14.46
+New Balance: $14.46
 
+--------------------------------------------------------------------
 
 Printing bills for day: 16
 
@@ -403,6 +662,8 @@ Kurtz William D       6318 Falkirk Rd           $56.78
 Seger George          Waverly                   $63.91
 Jallade Louis E       Radcliffe Av St Michaels  $16.73
 
+--------------------------------------------------------------------
+
 Printing in hash range: 2
 
 Customer list whose names hash to 2:
@@ -413,11 +674,15 @@ Loftus V A            181 Cherrydell Rd
 Elborn William O      Barclay
 Anderson Brenda       386 Maple Lane Baltimore
 
+--------------------------------------------------------------------
+
 Printing records by area: 913
 
 Customers in located in zone 913:
 Ranieri Rudolph L     (913)-728-6140
 Skeie Dean            (913)-745-5331
 Smith Mary Isabel     (913)-623-5264
+
+--------------------------------------------------------------------
 
 Exiting...
