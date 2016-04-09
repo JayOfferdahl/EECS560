@@ -10,6 +10,12 @@ proj2_HashTable.o: proj2_HashTable.h proj2_HashTable.cpp
 proj2_Customer.o: proj2_Customer.h proj2_Customer.cpp
 	g++ -g -std=c++11 -c proj2_Customer.cpp
 
+test: proj2
+	./proj2 proj2data.txt
+
+output: proj2
+	./proj2 proj2data.txt > proj2output.txt
+
 ifdef SystemRoot
     RM = del /Q
     FixPath = $(subst /,\,$1)

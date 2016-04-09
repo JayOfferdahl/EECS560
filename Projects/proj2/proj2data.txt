@@ -1,13 +1,25 @@
-6
-6.73 Adams John Quincy
 11
 785
 7
 Brown Frank F
+8
+7859834162
 1
 Brown Frank F        37 Elm Street Lawrence      7859834162   17.26
+1
+Brown Frank F        37 Elm Street Lawrence      7859834162   30184.02
+2
+7859834162 Brown Frank F        37 Elm Street Lawrence     94828.00
+7
+Brown Frank F
+8
+7859834162
 3
 Brown Frank F
+7
+Brown Frank F
+8
+7859834162
 1
 Brown Frank F        37 Elm Street Lawrence      7859834162   930.84
 4
@@ -23,13 +35,27 @@ Brown Frank F
 5
 337.00 Brown Frank F
 5
+-10.00 Brown Frank F
+5
+0.00 Brown Frank F
+5
 500.00 7859834162
 5
 5000.00 Brown Frank F
 6
 1000.00 Brown Frank F
 6
+-500.00 Brown Frank F
+6
+0.00 Brown Frank F
+6
 500.00 7859834162
+7
+Brown Frank F
+8
+7859834162
+3
+Brown Frank F
 7
 Brown Frank F
 8
@@ -38,14 +64,44 @@ Brown Frank F
 20
 9
 46
+9
+47
+9
+150
+9
+0
 10
 12
 10
 23
 10
 28
+10
+31
+10
+32
+10
+0
+10
+1
+10
+-20
+11
+-500
+11
+13
+11
+193
+11
+913
 11
 785
+11
+1030
+11
+99401
+6
+6.73 Adams John Quincy
 8
 2133878285
 4

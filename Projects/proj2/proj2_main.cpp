@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 			// Try to find this customer by number, if not found, continue
 			Customer* check = numTable->find(number);
 			if(check != nullptr)
-				std::cout << "\nError: Customer already exists in the database.\n";
+				std::cout << "\nError: That account number already exists in the database.\n";
 			else {
 				// Try inserting into all three tables and verify placement
 				try {
@@ -133,7 +133,7 @@ int main(int argc, char* argv[])
 			// Try to find this customer by name, if not found, continue
 			Customer* check = numTable->find(number);
 			if(check != nullptr) {
-				std::cout << "\nError: Customer already exists in the database.\n";
+				std::cout << "\nError: That account number already exists in the database.\n";
 			}
 			else {
 				// Try inserting into all three tables and verify placement
@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
 			if(temp != nullptr) {
 				temp->print();
 				try {
-					std::cout << "Final bill for " << temp->name << ":\n";
+					std::cout << "\nFinal bill for " << temp->name << ":\n";
 					std::cout << "Charges: $" << std::fixed << std::setprecision(2) 
 						  << temp->charges << "\n";
 
@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
 			if(temp != nullptr) {
 				temp->print();
 				try {
-					std::cout << "Final bill for " << temp->name << ":\n";
+					std::cout << "\nFinal bill for " << temp->name << ":\n";
 					std::cout << "Charges: $" << std::fixed << std::setprecision(2) 
 						  << temp->charges << "\n";
 
@@ -258,11 +258,15 @@ int main(int argc, char* argv[])
 
 			// If the search returned a valid customer, try to make the payment
 			if(temp != nullptr) {
+				// Print out cusotmer record
 				temp->print();
+				std::cout << "\nOriginal Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				try {
 					temp->makePayment(payment);
-					std::cout << "Payment made!\n";
-					temp->print();
+					std::cout << "\nPayment made!\n";
+					std::cout << "\nNew Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				} catch(const std::runtime_error& e ) {
 					std::cout << e.what();
 				}
@@ -294,11 +298,15 @@ int main(int argc, char* argv[])
 
 			// If the search returned a valid customer, try to make the payment
 			if(temp != nullptr) {
+				// Print out cusotmer record
 				temp->print();
+				std::cout << "\nOriginal Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				try {
 					temp->addCharge(charges);
-					std::cout << "Account charged!\n";
-					temp->print();
+					std::cout << "\nAccount charged!\n";
+					std::cout << "\nNew Balance: $" << std::fixed 
+						  << std::setprecision(2) << temp->charges << "\n";
 				} catch(const std::runtime_error& e ) {
 					std::cout << e.what();
 				}
@@ -347,7 +355,7 @@ int main(int argc, char* argv[])
 
 			// Check for in range arguments
 			if(choice >= 47 || choice < 0) {
-				std::cout << "\nError: Invalid index: Max index is 46. (0-based)\n";
+				std::cout << "\nError: Invalid index: Index must be between 0 and 46. (0-based)\n";
 			}
 			else {
 				// Print out the chain of customers at this hash
@@ -368,7 +376,7 @@ int main(int argc, char* argv[])
 
 			// Check for in range arguments
 			if(choice >= 32 || choice <= 0) {
-				std::cout << "\nError: Invalid index: Max index is 31. (1-based, 31 days max)\n";
+				std::cout << "\nError: Invalid index: Index must be between 1 and 31. (1-based, 31 days max)\n";
 			}
 			else {
 				std::string ending;
@@ -412,7 +420,7 @@ int main(int argc, char* argv[])
 
 			// Check for in range arguments
 			if(choice < 100 || choice > 999) {
-				std::cout << "\nError: Invalid area code: Please choose a three digit number.\n";
+				std::cout << "\nError: Invalid area code: Please choose a positive three digit number.\n";
 			}
 			else {
 				std::cout << "\nCustomers in located in zone " << choice << ":\n";
@@ -421,16 +429,20 @@ int main(int argc, char* argv[])
 				Customer* temp = areaTable->table[areaTable->hash(choice)];
 				std::string num;
 				int area;
+				bool found = false;
 
 				while(temp != nullptr) {
 					num = std::to_string(temp->number);
 					area = std::stoi(num.substr(0, 3));
 					if(area == choice) {
+						found = true;
 						std::cout << pad(temp->name, 20) << " (" << num.substr(0, 3) 
 								  << ")-" << num.substr(3, 3) << "-" << num.substr(6, 4) << "\n";
 					}
 					temp = temp->nextArea;
 				}
+				if(!found)
+					std::cout << "\nThere are no customers located in this area code.\n";
 			}
 		}
 		// Quit
@@ -462,6 +474,8 @@ int main(int argc, char* argv[])
 		}
 		else
 			std::cout << "\nInvalid input.\n";
+
+		std::cout << "\n--------------------------------------------------------------------\n";
 	}
 }
 
