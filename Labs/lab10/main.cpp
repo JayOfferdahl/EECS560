@@ -12,7 +12,7 @@
 
 void printMaze(int*, int*, int, int, int*);
 bool notConnected(int*, int);
-int root(int*, int, int);
+int root(int*, int);
 
 int main()
 {
@@ -26,9 +26,8 @@ int main()
 		std::cout << "Please enter the dimensions of the grid (Format: [length] [height]):\n";
 		std::cin >> length >> height;
 
-		if(length < 1 || height < 1) {
+		if(length < 1 || height < 1)
 			std::cout << "Invalid dimensions. Please try again.\n\n";
-		}
 		else
 			break;
 
@@ -38,10 +37,9 @@ int main()
 	std::cout << "Entered dimensions: length = " << length << ", height = " << height << "\n";
 
 	// Initialize all variables/arrays
-	int n = length * height;
-	int maze[length * height];
-	int h_walls[n];
-	int v_walls[n];
+	int n = length * height, index, wall, temp, wallIndexToRemove;
+	int maze[n], h_walls[n], v_walls[n];
+	bool horizontal = false, validWall;
 
 	for(int i = 0; i < n; i++) {
 		maze[i] = -1;
@@ -53,18 +51,14 @@ int main()
 	printMaze(h_walls, v_walls, length, height, maze);
 
 	srand(9857);
-	int index, wall, temp, wallIndexToRemove;
-	bool horizontal = false, validWall, removed;
 
 	// Complete the maze using the union find data structure
 	while(notConnected(maze, n)) {
-		// Select random element
+		// Select random element & wall
 		index = rand() % n;
-
-		// Select random wall
 		wall = rand() % 4;
 
-		// Check validity of wall removal, if valid, store necessary info for removal
+		// Check validity of wall removal, & store necessary info for removal
 		// Use N - 0, E - 1, S - 2, W - 3
 		if(wall == 0 && index > length - 1) {
 			if(h_walls[index - length] == 1) {
@@ -97,25 +91,14 @@ int main()
 
 		// If approved for wall removal, check additional parameters and remove
 		if(validWall) {
-			if(maze[index] == -1 && root(maze, n, temp) != index) {
-				maze[index] = temp;
-				removed = true;
-			}
-			else if(maze[temp] == -1 && root(maze, n, index) != temp) {
-				maze[temp] = index;
-				removed = true;
-			}
-			else if(root(maze, n, index) != root(maze, n, temp)) {
-				maze[root(maze, n, index)] = temp;
-				removed = true;
-			}
+			if(root(maze, index) != root(maze, temp)) {
+				maze[root(maze, index)] = temp;
 
-			if(removed && horizontal)
-				h_walls[wallIndexToRemove] = 0;
-			else if(removed)
-				v_walls[wallIndexToRemove] = 0;
-
-			removed = false;
+				if(horizontal)
+					h_walls[wallIndexToRemove] = 0;
+				else
+					v_walls[wallIndexToRemove] = 0;
+			}
 			validWall = false;
 		}
 	}
@@ -173,7 +156,6 @@ void printMaze(int *h_walls, int *v_walls, int length, int height, int *maze) {
 				else
 					std::cout << "    ";
 			}
-
 			level++;
 		}
 		std::cout << "\n";		
@@ -187,20 +169,13 @@ void printMaze(int *h_walls, int *v_walls, int length, int height, int *maze) {
  * @return      - true if the maze is connected, false otherwise
  */
 bool notConnected(int *maze, int n) {
-	int temp = root(maze, n, 0);
+	int temp = root(maze, 0);
 
 	// Do a linear search, if any negative values, return false
 	for(int i = 0; i < n; i++) {
-		int currRoot = root(maze, n, i);
-		if(currRoot == -1 && temp == i) {
-			// Pass, this is the highest root
-		}
-		else if(root(maze, n, i) != temp)
+		if(root(maze, i) != temp)
 			return true;
 	}
-
-	if(temp == -1)
-		return true;
 
 	return false;
 }
@@ -208,17 +183,15 @@ bool notConnected(int *maze, int n) {
 /**
  * Finds the root of this set
  * @param  maze  - the array object
- * @param  n     - the number of elements in the array
  * @param  index - the index to be examined
  * @return       - the index of the root of this index
  */
-int root(int *maze, int n, int index) {
-	if(maze[index] == -1)
+int root(int *maze, int index) {
+	int currIndex = maze[index];
+
+	if(currIndex == -1)
 		return index;
 	else {
-		int currIndex = maze[index];
-
-		// Go until we find a -1
 		while(maze[currIndex] != -1)
 			currIndex = maze[currIndex];
 
