@@ -212,7 +212,7 @@ void dfs(int vertices, int vertex, int prevVertex, int* visited, int* graph, Cyc
 
 	// Check all of the vertices
 	for(int i = 1; i <= vertices; i++) {
-		if(i != vertex && prevVertex != i) {
+		if(i != vertex && i != prevVertex) {
 			// Get the correct index to check in the array
 			index = graphIndex(vertices, i, vertex);
 
@@ -222,6 +222,7 @@ void dfs(int vertices, int vertex, int prevVertex, int* visited, int* graph, Cyc
 				cycle->maxEdgeSoFar = graph[index];
 				cycle->maxEdge1 = vertex;
 				cycle->maxEdge2 = i;
+				return;
 			}
 			else if(graph[index] != 0) {
 				dfs(vertices, i, vertex, visited, graph, cycle);
