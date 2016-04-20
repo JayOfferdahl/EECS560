@@ -1,3 +1,6 @@
+all: proj2
+	dos2unix *.txt -o
+
 proj2: proj2_main.o proj2_HashTable.o proj2_Customer.o
 	g++ -g -std=c++11 proj2_main.o proj2_HashTable.o proj2_Customer.o -o proj2
 
@@ -10,10 +13,10 @@ proj2_HashTable.o: proj2_HashTable.h proj2_HashTable.cpp
 proj2_Customer.o: proj2_Customer.h proj2_Customer.cpp
 	g++ -g -std=c++11 -c proj2_Customer.cpp
 
-test: proj2
+test: all
 	./proj2 proj2data.txt
 
-output: proj2
+output: all
 	./proj2 proj2data.txt > proj2output.txt
 
 ifdef SystemRoot
