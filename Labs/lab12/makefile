@@ -1,8 +1,11 @@
-lab: main.o
-	g++ -g -std=c++11 main.o -o lab
+lab: main.o Timer.o
+	g++ -g -std=c++11 main.o Timer.o -o lab
 
 main.o: main.cpp
 	g++ -g -std=c++11 -c main.cpp
+
+Timer.o: Timer.cpp
+	g++ -g -std=c++11 -c Timer.cpp
 
 ifdef SystemRoot
     RM = del /Q

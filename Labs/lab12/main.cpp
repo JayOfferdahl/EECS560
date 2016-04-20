@@ -9,16 +9,17 @@
 
 #include <string.h>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
 #include "Timer.cpp"
 
 void printArr(int*, int);
+void resetArr(int*, int*);
 void printTable(int, int, std::string[][3]);
 void fillArr(int, int*, int*, int);
 void shellSort(int*, int, std::string);
-void insertionSort(int*, int);
 bool checkSorted(int*, int);
 
 int main(int argc, char* argv[])
@@ -39,14 +40,11 @@ int main(int argc, char* argv[])
 	}
 
 	// Initialize arrays and their current sizes
-	int* arr = new int[400000]();
-	int arrSize = 0, row;
+	int *arr = new int[400001]();
+	int arrSize = 0, row, temp;
 	int dataSizes[] = {100000, 200000, 300000, 400000};
 	int seeds[] = { 
-		8104, 1947, 5381, 3198, 6423, 
-		9983, 1642, 7642, 2349, 8829,
-		6349, 3342, 9174, 7183, 4326,
-		7543, 2893, 1943, 8883, 1019
+		810, 194, 537, 319, 642
 	};
 	double duration;
 	char buffer[256];
@@ -64,34 +62,42 @@ int main(int argc, char* argv[])
 	 */
 	std::string output[21][3];
 
-	Timer* tim = new Timer();
-
 	output[0][0] = "Size (n)";
 	output[0][1] = "Srand";
 	output[0][2] = "Sort Time";
 
+	Timer tim;
 	double average = 0.0;
 
 	for(int i = 0; i < 4; i++) {
 		int currentSize = dataSizes[i];
+
 		getline(file, line);
+
+		// Fix the input to not have any commas
+		temp = line.find_first_of(", ", temp + 1);
+
+		while(temp != std::string::npos) {
+			line[temp] = ' ';
+			temp = line.find_first_of(", ", temp + 1);
+		}
 
 		// Do five tests for this data size
 		for(int j = 1; j <= 5; j++) {
 			arrSize = 0;
 			row = i * 5 + j;
 
+			resetArr(arr, &arrSize);
+
 			// Fill the array with random numbers from -3n to 3n
-			fillArr(seeds[row], arr, &arrSize, currentSize);
+			fillArr(seeds[j - 1], arr, &arrSize, currentSize);
 			output[row][0] = std::to_string(currentSize); 
-			output[row][1] = std::to_string(seeds[row - 1]);
+			output[row][1] = std::to_string(seeds[j - 1]);
 
 			// Sort the array using shell sort
-			tim->start();
+			tim.start();
 			shellSort(arr, arrSize, line);
-			duration = tim->stop();
-
-			average += duration;
+			duration = tim.stop();
 
 			// Assert this array is sorted
 			if(!checkSorted(arr, arrSize)) {
@@ -101,18 +107,18 @@ int main(int argc, char* argv[])
 
 			sprintf(buffer, "%5.6f", duration);
 			output[row][2] = buffer;
+
+			average += duration;
 		}
-		std::cout << "Average for n = " << i + 1 << "00000: " << average / 5 << "\n";
+		std::cout << "Average for n = " << currentSize << ": " << average / 5 << "\n";
 		average = 0.0;
 	}
 
 	// Print out the output
 	printTable(21, 3, output);
 
-	delete tim; // Sorry tim
-	delete arr;
-
 	std::cout << "\nProgram Exiting...\n\n";
+	delete arr;
 
 	// Exit the programs
 	return 0;
@@ -126,23 +132,13 @@ int main(int argc, char* argv[])
  * @param stream  - a stream holding the increments to use with shellsort
  */
 void shellSort(int* arr, int arrSize, std::string scheme) {
-	int inc, temp = 0, j;
-	std::string line = scheme;
+	int inc, temp, j;
 
-	// Fix the input to not have any commas
-	temp = line.find_first_of(", ", temp + 1);
-
-	while(temp != std::string::npos) {
-		line[temp] = ' ';
-		temp = line.find_first_of(", ", temp + 1);
-	}
-
-	std::stringstream stream(line);
-	stream >> line;
+	std::stringstream stream(scheme);
+	stream >> inc;
 
 	while(stream) {
 		// Get the nezt value of increment
-		inc = std::stoi(line);
 
 		for(int i = inc; i <= arrSize; i++) {
 			temp = arr[i];
@@ -154,30 +150,7 @@ void shellSort(int* arr, int arrSize, std::string scheme) {
 			arr[j + inc] = temp;
 		}
 
-		stream >> line;
-	}
-}
-
-
-/**
- * Sorts the input array using insertion sort
- * @param  arr  - the input array to sort
- * @param  size - the size of the input array
- */
-void insertionSort(int* arr, int size) {
-	int j, temp;
-
-	for(int i = 1; i < size; i++) {
-		j = i;
-		temp = arr[i];
-		while(temp < arr[j - 1]) {
-			arr[j] = arr[j - 1];
-			j--;
-
-			if(j == 0)
-				break;
-		}
-		arr[j] = temp;
+		stream >> inc;
 	}
 }
 
@@ -210,6 +183,20 @@ void printArr(int* arr, int size) {
 			std::cout << ", ";
 	}
 	std::cout << "]\n";
+}
+
+
+/**
+ * Resets the input array to an array of all 0s
+ * @param arr  - the input array to be reset
+ * @param size - the size of the input array
+ */
+void resetArr(int* arr, int* size) {
+	for(int i = 0; i <= *size; i++) {
+		arr[i] = 0;
+	}
+
+	(*size)--;
 }
 
 
@@ -249,14 +236,13 @@ void printTable(int rows, int cols, std::string arr[][3]) {
  * @note           - modifies the arrSize variable to reflect correct size
  */
 void fillArr(int seed, int* arr, int* arrSize, int fillSize) {
-	int i = 1;
+	int val;
 	srand(seed);
 
 	// Randomly generate the values in the array
-	while(i <= fillSize) {
-		int val = rand() % (fillSize * 6) - fillSize * 3;
+	for(int i = 1; i <= fillSize; i++) {
+		val = rand() % (fillSize * 6) - fillSize * 3;
 
 		arr[(*arrSize)++] = val;
-		i++;
 	}
 }
