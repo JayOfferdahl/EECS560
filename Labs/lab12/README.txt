@@ -14,13 +14,10 @@ Hello Mehrdad!
 I've included my code, output, the plot of the output in an excel graph, and my
 estimations of the algorithm's complexities in the report.
 
-Note: I hard coded the filename into my program, so if you want to test with
-different increment patterns, please modify TLAB12.txt.
-
 To make and run the program:
 
 make
-./lab
+./lab [name of increment file]
 
 Thanks, and see you next week,
 
