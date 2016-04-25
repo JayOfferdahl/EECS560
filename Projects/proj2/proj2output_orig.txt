@@ -1,0 +1,173 @@
+********************************************************************
+
+                     Jay Offerdahl - Project 2                      
+
+********************************************************************
+
+Charging customer: 6.73 Adams John Quincy
+
+Customer Record:
+Name:		Adams John Quincy
+Address:	Quincy Massachusetts
+Number:		(603)-375-8957
+Charges:	$359.76
+
+Original Balance: $359.76
+
+Account charged!
+
+New Balance: $366.49
+
+--------------------------------------------------------------------
+
+Inserting record by name: Brown Frank F        37 Elm Street  Lawrence     7859834162   17.26
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Brown Frank F
+Address:	37 Elm Street  Lawrence
+Number:		(785)-983-4162
+Charges:	$17.26
+
+--------------------------------------------------------------------
+
+Printing bill by number: 2133878285
+
+Current period bill for Robinson Raymond A:
+Current charges: $46.98
+
+--------------------------------------------------------------------
+
+Removing record by number: 6033758957
+
+Customer Record:
+Name:		Adams John Quincy
+Address:	Quincy Massachusetts
+Number:		(603)-375-8957
+Charges:	$366.49
+
+Final bill for Adams John Quincy:
+Charges: $366.49
+
+Verifying record removal...
+Record not found in the database.
+
+--------------------------------------------------------------------
+
+Inserting record by number: 9136235264 Smith Mary Isabel    87 Spruce Street Topeka   24.76
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Smith Mary Isabel
+Address:	87 Spruce Street Topeka
+Number:		(913)-623-5264
+Charges:	$24.76
+
+--------------------------------------------------------------------
+
+Charging customer: 247.36 3145867610
+
+Customer Record:
+Name:		Perkins Ann I
+Address:	59 Wistful Vista
+Number:		(314)-586-7610
+Charges:	$14.76
+
+Original Balance: $14.76
+
+Account charged!
+
+New Balance: $262.12
+
+--------------------------------------------------------------------
+
+Inserting record by name: Anderson Brenda      386 Maple Lane Baltimore    7116281819   0.00 
+
+Verifying record placement...
+Record found!
+
+Customer Record:
+Name:		Anderson Brenda
+Address:	386 Maple Lane Baltimore
+Number:		(711)-628-1819
+Charges:	$0.00
+
+--------------------------------------------------------------------
+
+Removing record by name: Johnson James J
+
+Customer Record:
+Name:		Johnson James J
+Address:	4713 Harrison Av
+Number:		(333)-382-1674
+Charges:	$75.13
+
+Final bill for Johnson James J:
+Charges: $75.13
+
+Verifying record removal...
+Record not found in the database.
+
+--------------------------------------------------------------------
+
+Printing bill by name: Zwagerman Lance
+
+Current period bill for Zwagerman Lance:
+Current charges: $65.78
+
+--------------------------------------------------------------------
+
+Making a payment: 10.54 2138721674
+
+Customer Record:
+Name:		Curtis Cynthia
+Address:	15 Meadowlark Lane
+Number:		(213)-872-1674
+Charges:	$25.00
+
+Original Balance: $25.00
+
+Payment made!
+
+New Balance: $14.46
+
+--------------------------------------------------------------------
+
+Printing bills for day: 16
+
+Bills going out on the 16th:
+Seymour Sonja Mrs     439 South St  Easton      $13.56
+Perkins Pancake Hse   9545 Belair Rd            $650.00
+Hill Frank E          21 S Calvert St           $13.45
+Kurtz William D       6318 Falkirk Rd           $56.78
+Seger George          Waverly                   $63.91
+Jallade Louis E       Radcliffe Av St Michaels  $16.73
+
+--------------------------------------------------------------------
+
+Printing in hash range: 2
+
+Customer list whose names hash to 2:
+Cody R J              8406 Snowdon Oaks Pl
+Robinson Raymond A    47 Clearview Ct
+Weaver Joseph         Hell's Half Acre  Oxford
+Loftus V A            181 Cherrydell Rd
+Elborn William O      Barclay
+Anderson Brenda       386 Maple Lane Baltimore
+
+--------------------------------------------------------------------
+
+Printing records by area: 913
+
+Customers in located in zone 913:
+Ranieri Rudolph L     (913)-728-6140
+Skeie Dean            (913)-745-5331
+Smith Mary Isabel     (913)-623-5264
+
+--------------------------------------------------------------------
+
+Exiting...
