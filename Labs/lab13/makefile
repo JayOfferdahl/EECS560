@@ -1,11 +1,14 @@
-lab: main.o PairingHeap.o
-	g++ -g -std=c++11 main.o PairingHeap.o -o lab
+lab: main.o PairingHeap.o Queue.o
+	g++ -g -std=c++11 main.o PairingHeap.o Queue.o -o lab
 
 main.o: main.cpp
 	g++ -g -std=c++11 -c main.cpp
 
 PairingHeap.o: PairingHeap.h PairingHeap.cpp
 	g++ -g -std=c++11 -c PairingHeap.cpp
+
+Queue.o: Queue.h Queue.cpp
+	g++ -g -std=c++11 -c Queue.cpp
 
 ifdef SystemRoot
     RM = del /Q
