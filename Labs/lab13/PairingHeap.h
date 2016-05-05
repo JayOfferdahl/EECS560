@@ -42,11 +42,13 @@ public:
 
 	void insert(int);
 
+	void deleteMin();
+
 	void compareAndLink(PairingNode *&, PairingNode*);
 
-	void printHeap();
+	PairingNode* combineSiblings(PairingNode*);
 
-	PairingNode* getRoot();
+	void printHeap();
 
 private:
 	PairingNode *m_root;	

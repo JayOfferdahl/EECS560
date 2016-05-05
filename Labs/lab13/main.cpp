@@ -19,8 +19,9 @@ int main()
 	PairingHeap *heap = new PairingHeap();
 	int choice, temp;
 
+	std::cout << "\nOptions:\n1. Insert\n2. Delete Min\n3. Print\n4. Exit\nChoice: ";
+	
 	while(true) {
-		std::cout << "Options:\n1. Insert\n2. Delete Min\n3. Print\n4. Exit\nChoice: ";
 		std::cin >> choice;
 
 		switch(choice) {
@@ -29,13 +30,11 @@ int main()
 				std::cin >> temp;
 
 				heap->insert(temp);
-				heap->printHeap();
-				std::cout << "\n";
 				break;
 			}
 			// Delete Min
 			case 2: {
-				// finish this
+				heap->deleteMin();
 				break;
 			}
 			case 3: {
